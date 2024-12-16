@@ -23,5 +23,5 @@ def createSolution(input_keyword):
         temperature=0.5
     )
 
-    solution = response['choices'][0]['message']['content']  # 요약된 내용 반환
+    solution = response['choices'][0]['message']['content'].strip()  # 요약된 내용 반환
     return solution

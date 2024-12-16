@@ -27,7 +27,10 @@ collection = client.create_collection("image_embeddings")
 
 # 이미지 임베딩을 ChromaDB에 저장하는 함수
 def findImage(new_image_path):
-    image_folder = "C:\\zzz\\food"
+
+    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    image_folder = os.path.join(script_dir, 'usageImages')
+    print("usageImages" + image_folder)
 
     # 이미지 폴더에서 이미지를 DB에 추가
     for image_file in os.listdir(image_folder):
@@ -39,6 +42,7 @@ def findImage(new_image_path):
             documents=[image_file],  # 문서로 이미지 파일명 추가
             embeddings=[embedding]  # 임베딩 추가
         )
+    print("213213213213213")
 
     # 새로운 이미지 임베딩 생성
     generate_embed_start = time.time()
